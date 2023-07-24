@@ -18,6 +18,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult GetAllBooks()
         {
+
             try
             {
                 var books = _context.Books.ToList();
