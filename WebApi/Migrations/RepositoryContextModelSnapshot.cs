@@ -39,6 +39,26 @@ namespace WebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Books");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Price = 75m,
+                            Title = "Hacivat ve Karagöz"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Price = 175m,
+                            Title = "Mesnevi"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Price = 375m,
+                            Title = "Devlet"
+                        });
                 });
 #pragma warning restore 612, 618
         }

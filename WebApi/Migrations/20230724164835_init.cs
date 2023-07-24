@@ -4,7 +4,7 @@
 
 namespace WebApi.Migrations
 {
-    public partial class startPoint : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,6 +21,21 @@ namespace WebApi.Migrations
                 {
                     table.PrimaryKey("PK_Books", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Books",
+                columns: new[] { "Id", "Price", "Title" },
+                values: new object[] { 1, 75m, "Hacivat ve Karagöz" });
+
+            migrationBuilder.InsertData(
+                table: "Books",
+                columns: new[] { "Id", "Price", "Title" },
+                values: new object[] { 2, 175m, "Mesnevi" });
+
+            migrationBuilder.InsertData(
+                table: "Books",
+                columns: new[] { "Id", "Price", "Title" },
+                values: new object[] { 3, 375m, "Devlet" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
