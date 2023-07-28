@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 using System;
@@ -30,13 +31,10 @@ namespace Presentation.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetOneBook([FromRoute(Name = "id")] int id)
         {
-            throw new Exception("!!!!!");
             var book = _manager
                 .BookService
                 .GetOneBookById(id, false);
-
-            if (book is null)
-                return NotFound();
+            
             return Ok(book);
         }
 
