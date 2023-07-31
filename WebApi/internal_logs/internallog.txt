@@ -47,3 +47,6 @@
 2023-07-31 20:48:58.8565 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\AspNetCoreWebApi\Applications\bsStoreApp\WebApi\nlog.config
 2023-07-31 20:51:27.1550 Info AppDomain Shutting down. LogFactory closing...
 2023-07-31 20:51:27.1636 Info LogFactory has been closed.
+2023-07-31 22:39:17.6897 Info Message Template Auto Format enabled
+2023-07-31 22:39:17.7333 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-31 22:39:17.7493 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\AspNetCoreWebApi\Applications\bsStoreApp\WebApi\nlog.config
