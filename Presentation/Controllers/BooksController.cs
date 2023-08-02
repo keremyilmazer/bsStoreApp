@@ -35,7 +35,7 @@ namespace Presentation.Controllers
             var book = _manager
                 .BookService
                 .GetOneBookById(id, false);
-            
+
             return Ok(book);
         }
 
@@ -45,7 +45,10 @@ namespace Presentation.Controllers
             if (bookDto is null)
                 return BadRequest();  //400
 
-           var book= _manager.BookService.CreateOneBook(bookDto);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            var book = _manager.BookService.CreateOneBook(bookDto);
 
             return StatusCode(201, book); //CreatedAtRoute()
         }
