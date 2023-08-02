@@ -60,8 +60,11 @@ namespace Presentation.Controllers
             if (bookDto is null)
                 return BadRequest();  //400
 
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState); //422
+ 
             //check book?
-            _manager.BookService.UpdateOneBook(id, bookDto, true);
+            _manager.BookService.UpdateOneBook(id, bookDto, false);
 
             return NoContent(); //204        
         }
