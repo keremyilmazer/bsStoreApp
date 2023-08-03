@@ -39,6 +39,7 @@ namespace Presentation.Controllers
             return Ok(book);
         }
 
+        //[ValidationAttributeFilter]
         [HttpPost]
         public async Task< IActionResult> CreateOneBookAsync([FromBody] BookDtoForInsertion bookDto)
         {
@@ -46,7 +47,7 @@ namespace Presentation.Controllers
                 return BadRequest();  //400
 
             if (!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
+                return UnprocessableEntity(ModelState); //422
 
             var book = await _manager.BookService.CreateOneBookAsync(bookDto);
 
