@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Presentation.Controllers
 {
+    [ServiceFilter(typeof(LogFilterAttribute))]
     [ApiController]
     [Route("api/books")]
     public class BooksController : ControllerBase
@@ -24,7 +25,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task< IActionResult> GetAllBooksAsync()
+        public async Task<IActionResult> GetAllBooksAsync()
         {
             var books = await _manager.BookService.GetAllBooksAsync(false);
             return Ok(books);
@@ -42,12 +43,13 @@ namespace Presentation.Controllers
 
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost]
-        public async Task< IActionResult> CreateOneBookAsync([FromBody] BookDtoForInsertion bookDto)
+        public async Task<IActionResult> CreateOneBookAsync([FromBody] BookDtoForInsertion bookDto)
         {
             var book = await _manager.BookService.CreateOneBookAsync(bookDto);
             return StatusCode(201, book); //CreatedAtRoute()
         }
 
+        
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateOneBookAsync([FromRoute(Name = "id")] int id,
